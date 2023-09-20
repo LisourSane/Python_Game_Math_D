@@ -92,3 +92,5 @@ elif tryb_gry == 1:
 else:
     print("Proszę wybrać 1 lub 2")
     exit()
+
+    j
