@@ -1,0 +1,130 @@
+def dzielniki(x):
+    dziel=[]
+    if type(x) != int:
+        print("Proszę podać liczbę całkowitą.")
+    else:
+        i = x
+        while i >0:
+            if x%i == 0:
+                dziel.append(i)
+            i=i-1
+    return(dziel)
+def gra(a):
+    liczba_prob = 0
+    Lista = [i + 1 for i in range(100)]
+    b = random.choice(Lista)
+    while a in Lista and b in Lista:
+        x = random.choice(Lista)
+        liczba_prob = liczba_prob + 1
+        Lista = [i for i in Lista if not i in dzielniki(x)]
+    if a in Lista:
+        return(1)
+    else:
+        return(0)
+print(gra(8))
+
+import math
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plp
+import random
+
+Lista = [i+1 for i in range(100)]
+#print(Lista)
+#print(type(x) == int)
+def dzielniki(x):
+    dziel=[]
+    if type(x) != int:
+        print("Proszę podać liczbę całkowitą.")
+    else:
+        i = x
+        while i >0:
+            if x%i == 0:
+                dziel.append(i)
+            i=i-1
+    return(dziel)
+#Lista2=[i for i in Lista if not i in dzielniki(64)]
+#print(Lista2)
+#print(dzielniki(99))
+#GRA
+print("Wybierz Swój Numer")
+a = int(input())
+b = random.choice(Lista)
+print("drugi numer to ")
+print(b)
+
+
+#print("Wybierz numer do usunięcia wraz z dzielnikami.")
+#x = int(input())
+#Lista = [i for i in Lista if not i in dzielniki(x)]
+#if a in Lista:
+#    print("Nie udało się")
+#else:
+#    print("Gratulacje, wygrałeś")
+liczba_prob = 0
+while a in Lista and b in Lista:
+    x = random.choice(Lista)
+    liczba_prob = liczba_prob + 1
+    Lista = [i for i in Lista if not i in dzielniki(x)]
+if a in Lista:
+    print("Gracz wygrywa")
+else:
+    print("Bot wygrywa")
+print("Liczba rund wynosi:")
+print(liczba_prob)
+print("Pozostałe liczby w puli to:")
+print(Lista)
+
+def gra(a):
+    liczba_prob = 0
+    Lista = [i + 1 for i in range(100)]
+    b = random.choice(Lista)
+    while a in Lista and b in Lista:
+        x = random.choice(Lista)
+        liczba_prob = liczba_prob + 1
+        Lista = [i for i in Lista if not i in dzielniki(x)]
+    if a in Lista:
+        return(1)
+    else:
+        return(0)
+print(gra(8))
+
+#Tutaj mam zautomatyzowane
+import random
+import numpy as np
+import matplotlib.pyplot as plp
+
+Lista = [i + 1 for i in range(100)]
+def dzielniki(x):
+    dziel=[]
+    if type(x) != int:
+        print("Proszę podać liczbę całkowitą.")
+    else:
+        i = x
+        while i >0:
+            if x%i == 0:
+                dziel.append(i)
+            i=i-1
+    return(dziel)
+def gra(a):
+    liczba_prob = 0
+    Lista = [i + 1 for i in range(100)]
+    b = random.choice(Lista)
+    while a in Lista and b in Lista:
+        x = random.choice(Lista)
+        liczba_prob = liczba_prob + 1
+        Lista = [i for i in Lista if not i in dzielniki(x)]
+    if a in Lista:
+        return(1)
+    else:
+        return(-1)
+Wyniki = [0 for i in range(1000)]
+for i in range(1000):
+    a = random.choice(Lista)
+    Wyniki[i] = gra(a)
+print(Wyniki)
+dane = np.array(Wyniki)
+plp.plot(np.cumsum(dane))
+plp.show()
+
+
