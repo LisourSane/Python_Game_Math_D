@@ -68,9 +68,13 @@ elif tryb_gry == 1:
         if i % 2 == 0:
             print("Niech gracz wybierze liczbę do usunięcia")
             c = int(input())
-            for j in dzielniki(c):
-                Lista[j - 1] = 'x'
-            Lista2 = [i for i in Lista2 if not i in dzielniki(c)]
+            if c == a:
+                print("Wybrałeś do usunięcia swoją liczbę. Proszę wybierz inną liczbe w następnej turze.")
+            else:
+                for j in dzielniki(c):
+                    Lista[j - 1] = 'x'
+                Lista2 = [i for i in Lista2 if not i in dzielniki(c)]
+
 
 
         else:
@@ -89,8 +93,47 @@ elif tryb_gry == 1:
         print("Bot wygrywa, liczba gracza to", a)
     else:
         print("Remis")
-else:
-    print("Proszę wybrać 1 lub 2")
-    exit()
+elif tryb_gry == 3:
+    Lista1 = list(Lista)
+    a = random.choice(Lista)
+    print("Bot 1 wybrał liczbę ",a ,"jako swoją liczbę")
+    Lista1.remove(a)
+    Lista2 = list(Lista)
+    b = random.choice(Lista2)
+    print("Bot 2 wybrał liczbę ",b ,"jako swoją liczbę")
+    Lista2.remove(b)
+    i = 0
+    while a in Lista and b in Lista:
+        if i%2 == 0:
+            c = random.choice(Lista1)
+            print("Bot 1 wybrał liczbe ",c)
+            Lista1 = [i for i in Lista1 if i not in dzielniki(c)]
+            Lista2 = [i for i in Lista2 if i not in dzielniki(c)]
+            for j in dzielniki(c):
+                Lista[j-1] = 'x'
+            i = i+1
+            mlista = [Lista[j:j + 10] for j in range(0, len(Lista), 10)]
+            for l in mlista:
+                print(l)
+        else:
+            c = random.choice(Lista2)
+            print("Bot 2 wybrał liczbe ", c)
+            Lista1 = [i for i in Lista1 if i not in dzielniki(c)]
+            Lista2 = [i for i in Lista2 if i not in dzielniki(c)]
+            for j in dzielniki(c):
+                Lista[j - 1] = 'x'
+            i = i + 1
+            mlista = [Lista[j:j + 10] for j in range(0, len(Lista), 10)]
+            for l in mlista:
+                print(l)
+    if a in Lista:
+        print("Bot 1 wygrał, jego liczba to ",a)
+    else:
+        print("Bot 2 wygrał, jego liczba to ",b)
 
-    j
+
+
+
+else:
+    print("Proszę wybrać 1, 2 lub 3")
+    exit()
