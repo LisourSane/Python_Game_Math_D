@@ -19,7 +19,7 @@ def dzielniki(x):
                 dziel.append(i)
             i=i-1
     return(dziel)
-print("Jeśli chcesz grać z botem wciśnij 1, a z drugim graczem wciśnij 2")
+print("Jeśli chcesz grać z botem wciśnij 1, z drugim graczem wciśnij 2 a jeśli chcesz obejrzeć pojedynek botów, wciśnij 3.")
 tryb_gry = int(input())
 if tryb_gry == 2:
     print("Niech gracz 1 wybierze liczbę")
@@ -137,3 +137,5 @@ elif tryb_gry == 3:
 else:
     print("Proszę wybrać 1, 2 lub 3")
     exit()
+
+    #Dodaj różne strategie dla botów.
